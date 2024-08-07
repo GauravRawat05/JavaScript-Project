@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colour Changer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0; /* Remove default body margin */
+        display: flex; /* Center content horizontally */
+        justify-content: center; /* Align buttons horizontally */
+        align-items: center; /* Align buttons vertically (centered) */
+        min-height: 100vh; /* Set minimum viewport height */
+      }
+
+      .main {
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      .button:hover {
+        opacity: 0.8; /* Add hover effect */
+      }
+
+      #blue {
+        background-color: blue;
+      }
+
+      #black {
+        background-color: black;
+        color: white; /* Change text color for better visibility on black background */
+      }
+
+      #Purple {
+        background-color: purple;
+      }
+
+      #Yellow {
+        background-color: yellow;
+      }
+
+      #orange {
+        background-color: orange;
+      }
+
+      #white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Colour Changer</h1>
+      <div>
+        <button
+          class="button"
+          id="blue"
+          style="background-color: blue"
+        ></button>
+        <button
+          class="button"
+          id="black"
+          style="background-color: black"
+        ></button>
+      </div>
+      <div>
+        <button
+          class="button"
+          id="Purple"
+          style="background-color: purple"
+        ></button>
+        <button
+          class="button"
+          id="Yellow"
+          style="background-color: yellow"
+        ></button>
+      </div>
+      <div>
+        <button
+          class="button"
+          id="orange"
+          style="background-color: orange"
+        ></button>
+        <button
+          class="button"
+          id="white"
+          style="background-color: white"
+        ></button>
+      </div>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll(".button");
+      const body = document.querySelector("body");
+      const h1 = document.querySelector("h1");
+
+      buttons.forEach(function (button) {
+        console.log(button);
+        button.addEventListener("click", function (e) {
+          console.log(e);
+          console.log(e.target);
+
+          if (e.target.id === "blue") {
+            body.style.backgroundColor = e.target.id;
+          } else if (e.target.id === "black") {
+            body.style.backgroundColor = e.target.id;
+          } else if (e.target.id === "Purple") {
+            body.style.backgroundColor = e.target.id;
+          } else if (e.target.id === "Yellow") {
+            body.style.backgroundColor = e.target.id;
+          } else if (e.target.id === "orange") {
+            body.style.backgroundColor = e.target.id;
+          } else if (e.target.id === "white") {
+            body.style.backgroundColor = e.target.id;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
