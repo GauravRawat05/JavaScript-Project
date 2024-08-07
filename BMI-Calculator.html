@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      form div {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 200px;
+      }
+
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .result,
+      .condition {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+      .info {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>BMI Calculator</h1>
+      <form>
+        <div>
+          <p>Enter Your Height -</p>
+          <input type="text" placeholder="Enter Height" class="height" />
+        </div>
+        <div>
+          <p>Enter Your Weight -</p>
+          <input type="text" placeholder="Enter Weight" class="weight" />
+        </div>
+        <div>
+          <input type="submit" />
+        </div>
+        <p class="result"></p>
+        <p class="condition"></p>
+      </form>
+    </div>
+    <div class="info">
+      <p>UnderWeight = 18.5 and less than</p>
+      <p>Normal = 18.5 - 24.5</p>
+      <p>OverWeight = 24.5 and above</p>
+    </div>
+
+    <script>
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const height = document.querySelector(".height").value;
+        const weight = document.querySelector(".weight").value;
+        const result = document.querySelector(".result");
+        const condition = document.querySelector(".condition");
+
+        if (height === "" || height <= 0 || isNaN(height)) {
+          result.innerHTML = `Please enter valid value  not ${height}`;
+        } else if (weight === "" || weight <= 0 || isNaN(weight)) {
+          result.innerHTML = `Please enter valid value  not ${weight}`;
+        } else {
+          const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+          result.innerHTML = `Result - ${bmi}`;
+
+          if (bmi < 18.5) {
+            condition.innerHTML = `Condition - You are UnderWeight`;
+          } else if (bmi < 24.5) {
+            condition.innerHTML = `Condition - You are Normal`;
+          } else if (bmi > 24.5) {
+            condition.innerHTML = `Condition - Your are OverWeight`;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
