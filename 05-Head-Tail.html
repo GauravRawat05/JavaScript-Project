@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Head & Tail Game</title>
+    <style>
+      * {
+        background-color: rgb(75, 73, 73);
+      }
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px;
+      }
+
+      h1 {
+        color: rgb(227, 213, 213);
+        margin-bottom: 20px;
+      }
+
+      .button-container {
+        display: flex;
+        gap: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+      }
+
+      h3 {
+        margin-top: 20px;
+        color: rgb(227, 213, 213);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Head and Tail Game</h1>
+      <div class="button-container">
+        <button id="head">Head</button>
+        <button id="tail">Tail</button>
+      </div>
+      <h3 class="result"></h3>
+      <h3 id="DisplayResult"></h3>
+    </div>
+
+    <script>
+      let score = {
+        Wins: 0,
+        Losses: 0,
+      };
+
+      document.getElementById("head").addEventListener("click", function () {
+        const RanNum = Math.round(Math.random() * 10 + 1);
+        console.log(RanNum);
+
+        const h3 = document.querySelector("h3");
+
+        let result = "";
+        if (RanNum < 5) {
+          result = "head";
+        } else {
+          result = "tail";
+        }
+        console.log(result);
+
+        if (result === "head") {
+          h3.innerHTML = "You Win";
+          score.Wins = score.Wins + 1;
+        } else if (result === "tail") {
+          h3.innerHTML = "You Lose";
+          score.Losses = score.Losses + 1;
+        }
+
+        const DisResult = document.getElementById("DisplayResult");
+        DisResult.innerHTML = `Wins = ${score.Wins} Losses = ${score.Losses}`;
+        console.log(score);
+      });
+
+      document.getElementById("tail").addEventListener("click", function () {
+        const RanNum = Math.round(Math.random() * 10 + 1);
+        console.log(RanNum);
+
+        const h3 = document.querySelector("h3");
+
+        let result = "";
+        if (RanNum < 5) {
+          result = "head";
+        } else {
+          result = "tail";
+        }
+        console.log(result);
+
+        if (result === "tail") {
+          h3.innerHTML = "You Win";
+          score.Wins = score.Wins + 1;
+        } else if (result === "head") {
+          h3.innerHTML = "You Lose";
+          score.Losses = score.Losses + 1;
+        }
+
+        const DisResult = document.getElementById("DisplayResult");
+        DisResult.innerHTML = `Wins = ${score.Wins} Losses = ${score.Losses}`;
+        console.log(score);
+      });
+
+      console.log(score);
+    </script>
+  </body>
+</html>
