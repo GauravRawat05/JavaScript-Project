@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+    <style>
+      * {
+        font-family: Arial, sans-serif;
+      }
+      body {
+        justify-content: center;
+        display: grid;
+        font-family: sans-serif; /* Set a clean, modern font family */
+        background-color: #f0f0f0; /* Add a light background color */
+      }
+
+      .main {
+        padding: 20px;
+        display: grid;
+        text-align: center;
+        width: 500px;
+        height: 250px;
+        background-color: #fff;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+
+      .buttons {
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center; /* Center the title */
+        font-size: 2em; /* Increase title size */
+        margin: 20px 0; /* Add top and bottom margins */
+        color: #333; /* Set a dark text color */
+      }
+
+      button {
+        display: inline-block; /* Display buttons side-by-side */
+        margin: 10px; /* Add spacing between buttons */
+        padding: 10px 20px; /* Add padding for comfortable clicks */
+        border: 1px solid #ddd; /* Add a thin border */
+        border-radius: 5px; /* Add rounded corners */
+        font-size: 1em; /* Set button text size */
+        cursor: pointer; /* Indicate clickable elements */
+        background-color: #eee; /* Set a light button background */
+        transition: background-color 0.2s ease-in-out; /* Smoother hover effect */
+      }
+
+      button:hover {
+        background-color: #ddd; /* Change background color on hover */
+      }
+
+      #rock {
+        background-color: #c0392b; /* Reddish color for Rock */
+        color: white; /* White text for Rock */
+      }
+
+      #paper {
+        background-color: #ffd700; /* Yellowish color for Paper */
+        color: black; /* Black text for Paper */
+      }
+
+      #scissor {
+        background-color: #2ecc71; /* Greenish color for Scissors */
+        color: white; /* White text for Scissors */
+      }
+
+      p {
+        text-align: center;
+        margin: 10px 0; /* Add top and bottom margins */
+        font-size: 1.2em; /* Slightly larger font size for results and score */
+      }
+
+      #result {
+        font-weight: bold; /* Emphasize the result text */
+      }
+
+      #score {
+        color: #333; /* Darker text color for score */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Rock, Paper & Scissor Game</h1>
+      <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissor</button>
+      </div>
+      <p id="result"></p>
+      <p id="score">SCORE</p>
+    </div>
+
+    <script>
+      const Rock = document.getElementById("rock");
+      const Paper = document.getElementById("paper");
+      const Scissor = document.getElementById("scissor");
+      const Result = document.getElementById("result");
+      const Score = document.getElementById("score");
+
+      let score = {
+        Wins: 0,
+        Losses: 0,
+        Ties: 0,
+      };
+      let CompMove = "";
+
+      Rock.addEventListener("click", function (e) {
+        PlayGame();
+
+        let PlayerMove = e.target.id;
+        console.log(`PlayerMove = ${PlayerMove}`);
+        if (CompMove === "rock") {
+          Result.innerHTML = "Result - You Tie";
+          score.Ties = score.Ties + 1;
+        } else if (CompMove === "paper") {
+          Result.innerHTML = "Result - You Lose";
+          score.Losses = score.Losses + 1;
+        } else if (CompMove === "scissor") {
+          Result.innerHTML = "Result - You Win";
+          score.Wins = score.Wins + 1;
+        }
+
+        Score.innerHTML = `Wins = ${score.Wins} Losses = ${score.Losses} Ties = ${score.Ties}`;
+        console.log(score);
+      });
+
+      Paper.addEventListener("click", function (e) {
+        PlayGame();
+
+        let PlayerMove = e.target.id;
+        console.log(`PlayerMove = ${PlayerMove}`);
+        if (CompMove === "rock") {
+          Result.innerHTML = "Result - You Win";
+          score.Wins = score.Wins + 1;
+        } else if (CompMove === "paper") {
+          Result.innerHTML = "Result - You Tie";
+          score.Ties = score.Ties + 1;
+        } else if (CompMove === "scissor") {
+          Result.innerHTML = "Result - You Lose";
+          score.Losses = score.Losses + 1;
+        }
+
+        Score.innerHTML = `Wins = ${score.Wins} Losses = ${score.Losses} Ties = ${score.Ties}`;
+        console.log(score);
+      });
+
+      Scissor.addEventListener("click", function (e) {
+        PlayGame();
+
+        let PlayerMove = e.target.id;
+        console.log(`PlayerMove = ${PlayerMove}`);
+        if (CompMove === "rock") {
+          Result.innerHTML = "Result - You Lose";
+          score.Losses = score.Losses + 1;
+        } else if (CompMove === "paper") {
+          Result.innerHTML = "Result - You Win";
+          score.Wins = score.Wins + 1;
+        } else if (CompMove === "scissor") {
+          Result.innerHTML = "Result - You Tie";
+          score.Ties = score.Ties + 1;
+        }
+
+        Score.innerHTML = `Wins = ${score.Wins} Losses = ${score.Losses} Ties = ${score.Ties}`;
+        console.log(score);
+      });
+
+      function PlayGame() {
+        const RanNum = Math.round(Math.random() * 10 + 1);
+        // Making CompMove For Rock Paper Scissor
+        if (RanNum < 4) {
+          CompMove = "rock";
+        } else if (RanNum < 8) {
+          CompMove = "scissor";
+        } else if (RanNum < 12) {
+          CompMove = "paper";
+        }
+        console.log(`CompMove -${CompMove}`);
+      }
+
+      Score.innerHTML = `Wins = ${score.Wins} Losses = ${score.Losses} Ties = ${score.Ties}`;
+      console.log(score);
+      Result.innerHTML = `Result -`;
+    </script>
+  </body>
+</html>
