@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .displayResult {
+        width: 50%;
+        margin: auto;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      button {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        cursor: pointer;
+      }
+
+      .yellow {
+        background-color: #ffcc00;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p class="title">Calculator</p>
+      <p class="displayResult"></p>
+      <p>
+        <button
+          onclick="calculator += '1';
+        console.log(calculator);
+        document.querySelector('.displayResult').innerHTML = calculator;
+        "
+        >
+          1
+        </button>
+        <button
+          onclick="calculator += '2';
+        console.log(calculator) ;
+        document.querySelector('.displayResult').innerHTML = calculator;
+        "
+        >
+          2
+        </button>
+        <button
+          onclick="calculator += '3';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          3
+        </button>
+        <button
+          class="yellow"
+          onclick="calculator += ' + ';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          +
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="calculator += '4';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          4
+        </button>
+        <button
+          onclick="calculator += '5';
+        console.log(calculator) ;
+        DisplayResult();"
+        >
+          5
+        </button>
+        <button
+          onclick="calculator += '6';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          6
+        </button>
+        <button
+          class="yellow"
+          onclick="calculator += ' - ';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          -
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="calculator += '7';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          7
+        </button>
+        <button
+          onclick="calculator += '8';
+        console.log(calculator) ;
+        DisplayResult();"
+        >
+          8
+        </button>
+        <button
+          onclick="calculator += '9';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          9
+        </button>
+        <button
+          class="yellow"
+          onclick="calculator += ' * ';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          *
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="calculator += '0';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          0
+        </button>
+        <button
+          onclick="calculator += '00';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          00
+        </button>
+        <button
+          onclick="calculator += '.';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          .
+        </button>
+        <button
+          class="yellow"
+          onclick="calculator += ' / ';
+        console.log(calculator);
+        DisplayResult();"
+        >
+          /
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="calculator = '';
+        console.log(calculator);;
+        DisplayResult();"
+        >
+          Clear
+        </button>
+        <button
+          class="yellow"
+          onclick="calculator = eval(calculator);
+        console.log(calculator);
+        DisplayResult();"
+        >
+          =
+        </button>
+      </p>
+    </div>
+
+    <script>
+      let calculator = "";
+      function DisplayResult() {
+        document.querySelector(".displayResult").innerHTML = calculator;
+      }
+    </script>
+  </body>
+</html>
